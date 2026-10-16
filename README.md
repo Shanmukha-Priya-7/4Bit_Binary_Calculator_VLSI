@@ -10,12 +10,12 @@ To minimize transistor area (essential in VLSI design), this calculator reuses a
 
 - **Addition:** Computes A + B when control signal `op = 0`.
 - **Subtraction:** Computes A - B when control signal `op = 1` by utilizing the 2's complement hardware trick:
-  \[\text{Output} = A + \overline{B} + 1\]
+  Output = A + B' + 1
 
 ### Controlled Inverter Trick
 An array of XOR gates acts as a **smart switch** for the B input operands based on Boolean properties:
-- `op = 0`: \(B \oplus 0 = B\) (Bits pass through unchanged).
-- `op = 1`: \(B \oplus 1 = \overline{B}\) (Bits are inverted). Simultaneously, `op` passes a `1` directly into the first full adder's Carry-In (\(C_{in}\)), completing the +1 translation seamlessly.
+- `op = 0`: B xor 0 = B (Bits pass through unchanged).
+- `op = 1`: B xor 1 = B (Bits are inverted). Simultaneously, `op` passes a `1` directly into the first full adder's Carry-In (C_in), completing the +1 translation seamlessly.
 
 ---
 
